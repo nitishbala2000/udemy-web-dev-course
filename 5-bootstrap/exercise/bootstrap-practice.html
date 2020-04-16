@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>bootstrap practice</title>
+
+    <style type="text/css">
+        body {
+            margin : 0px;
+            padding : 0px;
+        }
+        .center-text {
+            text-align : center;
+        }
+
+        #card-container {
+            display : flex;
+            flex-direction : row;
+            width : 80%;
+            margin : auto;
+        }
+
+        .card {
+            margin : auto;
+        }
+
+        #bottom-jumbo {
+            margin-top : 30px;
+            background-color : #00FFFF;
+            height : 100%;
+        }
+
+        #app-store-icon {
+            width : 20%;
+        }
+
+        #icon-wrapper {
+            text-align : center;
+            margin : auto;
+        }
+
+        #jumbo1 {
+            margin-top : 40px;
+            background-image : url("sky.jpeg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">My App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#jumbo1">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#card-container">About</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#bottom-jumbo">Download The App</a>
+            </li>
+
+        </ul>
+
+        <form class="form-inline justify-content-center">
+            <input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email">
+            <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
+        </form>
+    </div>
+</nav>
+
+<div id="jumbo1" class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4 center-text">My Awesome App!</h1>
+        <p class="lead center-text">This is why YOU should download this fantastic app!</p>
+
+        <hr>
+        <p id="want-to-know-more" class="center-text">Want to know more? Join our mailing list</p>
+
+
+        <form class="form-inline justify-content-center">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">@</div>
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Your email">
+            </div>
+            <button class="btn btn-primary mb-2" type="submit">Sign Up</button>
+        </form>
+
+
+    </div>
+</div>
+
+<h2 class="center-text">Why This App is Awesome</h2>
+<p class="center-text">Summary, once again, of your app's awesomeness</p>
+
+<div id="card-container">
+
+    <div class="card" style="width: 18rem;">
+        <img src="fatherandson.jpg" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <img src="fatherandson.jpg" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <img src="fatherandson.jpg" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="jumbotron jumbotron-fluid" id="bottom-jumbo">
+    <div class="container">
+        <h1 class="display-4 center-text">Download the app!</h1>
+        <p class="lead center-text">Really, why should I download this app?</p>
+
+        <div id="icon-wrapper">
+            <a href="#" id="icon-link"><img src="App-Store-Icon.png" id="app-store-icon"></a>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+
+
+</html>

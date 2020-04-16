@@ -1,0 +1,233 @@
+<html>
+
+<head>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+    <script src="jquery-ui/jquery-ui.js"></script>
+
+
+    <style type="text/css">
+
+        body {
+            background-color : #EDEDED;
+            margin : 0px;
+            padding : 0px;
+        }
+
+        #nav-bar {
+            width : 100%;
+            height : 50px;
+            border : 1px black solid;
+        }
+
+        #codeplayer-text {
+            font-weight : bold;
+            font-size : 150%;
+            position : relative;
+            top : 10px;
+            margin-left : 10px;
+            float : left;
+        }
+
+        #links-div {
+            margin : auto;
+            width : 400px;
+            height : 40px;
+            position : relative;
+            top : 5px;
+            display : flex;
+            flex-direction : row;
+        }
+
+        .main-button {
+            width : 25%;
+            height : 100%;
+            border: 1px black solid;
+            text-align : center;
+            font-size : 130%;
+
+        }
+
+
+        #btnHTML {
+            background-color : #E1E6F4;
+            border-top-left-radius : 5px;
+            border-bottom-left-radius : 5px;
+
+        }
+
+        #btnOutput {
+            background-color : #E1E6F4;
+            border-top-right-radius : 5px;
+            border-bottom-right-radius : 5px;
+        }
+
+        .main-button-text {
+            position : relative;
+            top : 10px;
+        }
+
+        #main-div {
+            width : 100%;
+            height : 100%;
+            display : flex;
+            flex-direction : row;
+        }
+
+        .main-input {
+            height : 100%;
+            margin-right : 3px;
+        }
+
+        #html-input {
+            width : 50%;
+        }
+
+        #css-input {
+            display : none;
+        }
+
+        #js-input {
+            display : none;
+        }
+
+        #output-div {
+            width : 50%;
+            background-color : white;
+            height : 100%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="nav-bar">
+
+        <span id="codeplayer-text">CodePlayer</span>
+
+
+
+        <div id="links-div">
+
+            <div class="main-button" id="btnHTML"><span class="main-button-text" id="html-text">HTML</span></div>
+            <div class="main-button" id="btnCSS"><span class="main-button-text" id="css-text">CSS</span></div>
+            <div class="main-button" id="btnJS"><span class="main-button-text" id="js-text">JavaScript</span></div>
+            <div class="main-button" id="btnOutput"><span class="main-button-text" id="output-text">Output</span></div>
+
+        </div>
+
+    </div>
+
+    <div id="main-div">
+
+        <textarea class="main-input" id="html-input" placeholder="Enter HTML here"></textarea>
+
+        <textarea class="main-input" id="css-input" placeholder="Enter CSS here"></textarea>
+
+        <textarea class="main-input" id="js-input" placeholder="Enter JS here"></textarea>
+
+        <iframe id="output-div"></iframe>
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        var buttons = [$("#btnHTML"), $("#btnCSS"), $("#btnJS"), $("#btnOutput")];
+        var components = [$("#html-input"), $("#css-input"), $("#js-input"), $("#output-div")];
+        var num_visible = 2;
+
+        function resize() {
+            var width = 100 / num_visible;
+            for (var i = 0; i < components.length; i++) {
+                var c = components[i];
+                c.css("width", width + "%");
+            }
+        }
+
+        function buttonEventHandler(component, button) {
+            if (component.css("display") == "none") {
+                component.css("display", "inline");
+                num_visible++;
+                button.css("background-color",  "#E1E6F4");
+                resize();
+            } else {
+                component.css("display", "none");
+                num_visible--;
+                button.css("background-color",  "#EDEDED");
+                resize();
+            }
+
+
+        }
+
+
+
+        $(".main-button").hover(function() {
+            $(this).css("font-weight", "bold");
+        }, function() {
+            $(this).css("font-weight", "normal");
+        });
+
+        $("#btnHTML").click(function() {
+
+            buttonEventHandler($("#html-input"), $("#btnHTML"));
+
+        });
+
+        $("#btnCSS").click(function() {
+
+            buttonEventHandler($("#css-input"),  $("#btnCSS") );
+
+        });
+
+        $("#btnJS").click(function() {
+
+            buttonEventHandler($("#js-input"),  $("#btnJS"));
+
+        });
+
+        $("#btnOutput").click(function() {
+
+            buttonEventHandler($("#output-div"),  $("#btnOutput"));
+
+        });
+
+        function updateOutput() {
+            $("#output-div").contents().find("html").html(
+                "<head><style type='text/css'>" +  $("#css-input").val() + "</style> </head> <body>" + $("#html-input").val() + "</body>"
+            );
+
+            document.getElementById("output-div").contentWindow.eval($("#js-input").val());
+        }
+
+        $("#html-input").change(function() {
+            updateOutput();
+        });
+
+        $("#css-input").change(function() {
+            updateOutput();
+        });
+
+        $("#js-input").change(function() {
+            updateOutput();
+        });
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+
+</html>

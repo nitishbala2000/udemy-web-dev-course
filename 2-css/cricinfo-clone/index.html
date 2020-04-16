@@ -1,0 +1,777 @@
+<html>
+
+	<head>
+	
+		<title>Cricinfo clone</title>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+		<style type="text/css">
+		
+			body {
+				margin: 0;
+				padding: 0;
+				background-color : #EDEEF0;
+			}
+		
+			#nav-bar-div {
+				width : 100%;
+				height: 55px;
+				background-color : #03A9F4;
+				margin: 0px;
+				padding-left: 50px;
+				
+			}
+			
+			ul {
+			  width: 90%;
+			  list-style-type: none;
+			  margin: 0;
+			  padding: 0px 50px 0px 0px;
+			  overflow: hidden;
+			}
+			
+		
+			#nav-bar-div li a {
+			  display: block;
+			  color: white;
+			  text-align: center;
+			  padding: 14px 12px;
+			  font-size: 110%;
+			  text-decoration: none;
+			}
+			
+			.float-left {
+				float : left;
+			}
+			
+			.float-right {
+				float : right;
+			}
+			
+			#logo {
+				position : relative;
+				top: -5px;
+				height: 30px;
+			}
+			
+			#profile-pic {
+				height: 30px;
+				position : relative;
+				top: -8px;
+			}
+			
+			#magnifying-glass {
+				height: 35 px;
+				position : relative;
+				top: -14px;
+			}
+			
+			#apps-pic {
+				height: 30px;
+				position : relative;
+				top: -8px;
+			}
+			
+			@media only screen and (max-width: 1590px) {
+				#lhs-div {
+					display: none;
+				}
+				
+				#rhs-div {
+					display : none;
+				}
+				
+				#middle-div {
+					float : none !important;
+					margin : auto !important;
+				}
+			}
+			
+			@media only screen and (max-width: 1200px) {
+				.float-right {
+					display : none;
+				}
+			}
+			
+			#nav-bar-div-2 {
+				 background-color : white;
+				height: 55px;
+				padding-left: 50px;
+				padding-top : 7px;
+				width : 100%;
+				border-bottom : 2px grey solid;
+			
+			}
+			
+			#nav-bar-div-2 a:hover {
+				font-weight: bold;
+			}
+			
+			#nav-bar-div-2 li a {
+			
+			  display: block;
+			  color: black;
+			  text-align: center;
+			  padding: 14px 12px;
+			  font-size: 110%;
+			  text-decoration: none;
+			  height : 30px;
+			}
+			
+			#line {
+				background-color : black;
+				width : 1px;
+				height: 25px;
+				margin-left : 20px;
+				margin-right: 20px;
+				margin-top: 9px;
+			}
+			
+			.clear-floats {
+				clear: both;
+			}
+			
+			
+			#lhs-div {
+			
+				float: left;
+				width: 240px;
+				height: 1500px;
+				margin-top : 10px;
+				margin-left : 150px;
+			
+			}
+			
+			#matches-div {
+				
+				height: 110px;
+				background-color: #FFFFFF;
+				width : 100%;
+				border-top-right-radius: 15px;
+				border-top-left-radius : 15px;
+				margin-bottom : 0px;
+			}
+			
+			#fixtures-and-results {
+				border-radius : 15px;
+				width: 90%;
+				height: 30px;
+				margin: auto;
+				background-color : #EDEEF0;
+				font-size: 90%;
+				
+			}
+			
+			#results-text {
+				float: right;
+				margin-top: 5px;
+				margin-right : 10px;
+			}
+			
+			#fixtures-div {
+				border : 1px grey solid;
+				background-color : white;
+				float : left;
+				width : 50%;
+				height : 24px;;
+				border-radius : 15px;
+				text-align: center;
+				padding-top : 5px;
+				color: red;
+				font-size: 90%;
+			}
+			
+			#matches-text {
+				margin-left : 20px;
+				margin-top : 5px;
+				margin-bottom : 3px;
+				color: grey;
+				font-weight : bold;
+			}
+			
+			#all-times-text {
+				margin-top : 0px;
+				margin-left : 20px;
+				color: light-grey;
+				font-weight : bold;
+				
+				font-style : italic;
+			}
+			
+			.date-div {
+				
+				height: 110px;
+				background-color: white;
+				width : 100%;
+				margin-top : 0px;
+				margin-bottom : 2px;
+				padding-left : 30x;
+			
+			}
+			
+			.date {
+			    position : relative;
+				top : 3px;
+			    margin-top : 3px;
+				margin-left : 20px;
+				font-size: 80%;
+				font-weight : bold;
+			}
+			
+			.num-test {
+				position : relative;
+				top : -6px;
+				margin-left : 20px;
+				font-size: 80%;
+				color: grey;
+			}
+			
+			.aus {
+				position : relative;
+				top : -20px;
+				margin-left : 20px;
+				margin-bottom : 2px;
+				font-weight : bold;
+			}
+			
+			.nz {
+				position : relative;
+				top : -30px;
+				margin-left : 20px;
+				margin-bottom : 2px;
+				font-weight : bold;
+			}
+			
+			.flag {
+				margin-right : 10px;
+			}
+			
+			#bottom-match-div {
+				
+				width : 100%;
+				height : 30px;
+				background-color : white;
+				border-bottom-right-radius: 15px;
+				border-bottom-left-radius : 15px;
+			
+			}
+			
+			#customize {
+				
+				width : 100%;
+				height: 130px;
+				background-color: white;
+				border-radius: 15px;
+				position : relative;
+				top : 30px;
+			}
+			
+			#customize-text {
+				position: relative;
+				left: 20px;
+				top: 10px;
+				font-size: 110%;
+				font-weight: bold;
+			}
+			
+			#horiz-line {
+				width: 80%;
+				height : 1px;
+				background-color: grey;
+				position : relative;
+				top: 20px;
+				margin: auto;
+			}
+			
+			#signup-btn {
+				margin: auto;
+				display: block;
+				position : relative;
+				top: 30px;
+				height: 30px;
+				width: 90%;
+				border-radius: 15px;
+				font-size: 90%;
+				color: white;
+				background-color: #03A9F4;
+			}
+			
+			#login-btn {
+				margin: auto;
+				display: block;
+				position : relative;
+				top: 40px;
+				height: 30px;
+				width: 90%;
+				border-radius: 15px;
+				font-size : 90%;
+				color: #03A9F4;
+				background-color: white;
+				border: 1px #03A9F4 solid;
+			}
+			
+			#rhs-div {
+				float : left;
+				margin-left : 10px;
+				margin-top : 10px;
+				width: 360px;
+				height: 200px;
+				background-color : #F9F9FB;
+				border-radius: 15px;
+			}
+			
+			#rhs-div a:hover {
+				color : blue;
+			}
+			
+			.privacy-link {
+				display: block;
+				margin-left: 17px;
+				position: relative;
+				top: 20px;
+				color: black;
+				font-size: 110%;
+			}
+			
+			
+			#copyright-text {
+				margin-left: 17px;
+				color: grey;
+				position : relative;
+				top: 40px;
+			}
+			
+			#middle-div {
+				float : left;
+				width : 800px;
+				height : 1500px;
+				margin-left : 10px;
+				margin-top : 15px;
+			
+			}
+			
+			#boult-img {
+				width : 100%;
+				border-top-right-radius: 15px;
+				border-top-left-radius : 15px;
+			}
+			
+			#first-headline-div {
+				width : 100%;
+				height : 180px;
+				background-color: white;
+				border-bottom-right-radius: 15px;
+				border-bottom-left-radius : 15px;
+				margin-top : 10px;
+			}
+			
+			#first-headline-div  a:hover {
+				color : blue;
+			}
+			
+			#first-heading {
+				position : relative;
+				top : 20px;
+				color: black;
+				text-decoration : none;
+				font-weight : bold;
+				font-size : 150%;
+				display : block;
+				margin-left : 25px;
+				
+			}
+			
+			#first-headline-subheading {
+				display : block;
+				margin-left : 25px;
+				position : relative;
+				top : 20px;
+			
+			}
+			
+			#first-headline-byline {
+				color : grey;
+				font-size : 70%;
+				margin-left : 25px;
+				position : relative;
+				top : 30px;
+			}
+			
+			.headline-div {
+				width : 100%;
+				height : 230px;
+				border-radius : 15px;
+				margin-top : 15px;
+				background-color : white;
+				
+			
+			}
+			
+			.headline-flag {
+				float : left;
+				margin-left : 10px;
+				margin-top : 10px;
+				width : 50px;
+			}
+			
+			.headline-div-series {
+				float : left;
+				margin-left : 15px;
+				font-weight : bold;
+				position : relative;
+				top : 18px;
+				
+			}
+			
+			.headline-div-main {
+				
+				margin : auto;
+				width : 90%;
+				height : 150px;
+				position: relative;
+				top : 20px;
+			
+			}
+			
+			.headline-image {
+				float : left;
+				border-top-left-radius : 15px;
+				border-bottom-left-radius : 15px;
+				height : 100%;
+			
+				
+			}
+			
+			.headline-div-main-text {
+				float : left;
+				height : 99%;
+				border : 1px grey solid;
+				border-top-right-radius : 15px;
+				border-bottom-right-radius : 15px;
+				width : 440px;
+				overflow-wrap : break-word;
+			}
+			
+			.headline-div-main-text a:hover {
+				color : blue;
+			}
+			
+			
+			.headline-div-main-text-headline {
+				
+				margin-left : 20px;
+				margin-top : 20px;
+				display : block;
+				text-decoration : none;
+				font-weight : bold;
+				font-size : 120%;
+				color : black;
+			
+			}
+			
+			.headline-div-main-text-byline {
+				color: grey;
+				margin-left: 20px;
+				position : relative;
+				top : 50px;
+			}
+			
+			.move-down-a-bit {
+				position : relative;
+				top : 40px;
+			
+			}
+			
+			
+		</style>
+	
+	</head>
+	
+	<body>
+	
+		<div id="nav-bar-div">
+		
+			<ul>
+				
+				<li class="float-left"><a href=""><img src="images/logo.png" id="logo"></a></li>
+				
+				<li class="float-left"><a href="">Live Scores</a></li>
+				
+				<li class="float-left"><a href="">Series</a></li>
+				
+				<li class="float-left"><a href="">Teams</a></li>
+				
+				<li class="float-left"><a href="">Features</a></li>
+				
+				<li class="float-left"><a href="">Videos</a></li>
+				
+				<li class="float-left"><a href="">Stats</a></li>
+				
+				<li class="float-right"><a href=""><img src="images/profile-pic.png" id="profile-pic"></a></li>
+				
+				<li class="float-right"><a href=""><img src="images/mag-glass.png" id="magnifying-glass"></a></li>
+				
+				<li class="float-right"><a href=""><img src="images/apps-pic.png" id="apps-pic"></a></li>
+				
+				<li class="float-right"><a href="">Edition UK <img src="images/arrow.png" id="arrow"></a></li>
+				
+				
+			</ul>
+			
+		</div>
+		
+		<div id="nav-bar-div-2">
+			
+			<ul>
+			
+				<li class="float-left"><a href=""><strong>New Zealand tour of Australia 2019/20</strong></a></li>
+				
+				<div class = "float-left" id="line"></div>
+				
+				<li class="float-left"><a href="">Home</a></li>
+				
+				<li class="float-left"><a href="">Fixtures & results</a></li>
+				
+				<li class="float-left"><a href="">Squads</a></li>
+				
+				
+			
+			</ul>
+		
+		</div>
+		
+		<div class="clear-floats"></div>
+		
+		<div id="lhs-div">
+		
+			<div id="matches-div">
+			
+				<p id="matches-text">Matches</p>
+				<p id="all-times-text">All times</p>
+				
+				<div id="fixtures-and-results">
+				
+					<div id="fixtures-div">
+						FIXTURES
+					</div>
+				
+					<span id="results-text">RESULTS</span>
+					
+				
+				</div>
+				
+			</div>
+			
+			<div class="date-div">
+			
+				<p class="date">12/12 -  5:00am</p>
+				
+				<p class="num-test">1st Test, (D/N) at Perth</p>
+				
+				<p class="aus"> <img src="images/flag.png" class="flag">AUS</p>
+				
+				<p class="nz"> <img src="images/flag.png" class="flag">NZ</p>
+			
+			</div>
+			
+			<div class="date-div">
+			
+				<p class="date">12/12 -  5:00am</p>
+				
+				<p class="num-test">1st Test, (D/N) at Perth</p>
+				
+				<p class="aus"> <img src="images/flag.png" class="flag">AUS</p>
+				
+				<p class="nz"> <img src="images/flag.png" class="flag">NZ</p>
+			
+			</div>
+			
+			<div class="date-div">
+			
+				<p class="date">12/12 -  5:00am</p>
+				
+				<p class="num-test">1st Test, (D/N) at Perth</p>
+				
+				<p class="aus"> <img src="images/flag.png" class="flag">AUS</p>
+				
+				<p class="nz"> <img src="images/flag.png" class="flag">NZ</p>
+			
+			</div>
+			
+			<div class="date-div">
+			
+				<p class="date">12/12 -  5:00am</p>
+				
+				<p class="num-test">1st Test, (D/N) at Perth</p>
+				
+				<p class="aus"> <img src="images/flag.png" class="flag">AUS</p>
+				
+				<p class="nz"> <img src="images/flag.png" class="flag">NZ</p>
+			
+			</div>
+			
+			<div class="date-div">
+			
+				<p class="date">12/12 -  5:00am</p>
+				
+				<p class="num-test">1st Test, (D/N) at Perth</p>
+				
+				<p class="aus"> <img src="images/flag.png" class="flag">AUS</p>
+				
+				<p class="nz"> <img src="images/flag.png" class="flag">NZ</p>
+			
+			</div>
+			
+			<div class="date-div">
+			
+				<p class="date">12/12 -  5:00am</p>
+				
+				<p class="num-test">1st Test, (D/N) at Perth</p>
+				
+				<p class="aus"> <img src="images/flag.png" class="flag">AUS</p>
+				
+				<p class="nz"> <img src="images/flag.png" class="flag">NZ</p>
+			
+			</div>
+			
+			<div id="bottom-match-div">
+				
+			</div>
+			
+			<div id="customize">
+				<span id="customize-text">Customize ESPN</span>
+				
+				<div id="horiz-line"></div>
+				
+				<button id="signup-btn">Sign Up</button>
+				
+				<button id="login-btn">Log in</button>
+			
+			</div>
+			
+		</div>
+		
+		<div id="middle-div">
+			
+			<img id="boult-img" src="images/boult.jpeg">
+			
+			<div id="first-headline-div">
+				
+				<a href = "" id="first-heading">New Zealand 'quietly optimistic' on Boult, de Grandhomme being fit for Australia</a>
+				
+				<span id="first-headline-subheading">Both platers will have to prove their bowling fitness before New Zealand fly to Perth on Sunday, says coach</span>
+				
+				<span id="first-headline-byline">2d . Deorde Dobell in Hamilton</span>
+			</div>
+			
+			<div class = "headline-div">
+				
+				<img src="images/flag.png" class="headline-flag">
+				
+				<span class="headline-div-series">AUSTRALIA</span>
+				
+				<div class="clear-floats"></div>
+				
+				<div class="headline-div-main">
+				
+					<img class="headline-image" src="images/headline-image-1.jpeg">
+					
+					<div class="headline-div-main-text">
+						 <a href="" class = "headline-div-main-text-headline">Cameron Bancroft left out of Australia <br> Test squad to face New Zealand</a>
+						 
+						 <span class = "headline-div-main-text-byline">2d . ESPNcricinfo staff</span>
+						 
+						 
+					
+					</div>
+				
+				</div>
+			
+			</div>
+			
+			<div class = "headline-div">
+		
+				<span class="headline-div-series">NEW ZEALAND IN AUSTRALIA 2019-20</span>
+				
+				<div class="clear-floats"></div>
+				
+				<div class="headline-div-main move-down-a-bit">
+				
+					<img class="headline-image" src="images/ferguson.jpeg">
+					
+					<div class="headline-div-main-text">
+					
+						 <a href="" class = "headline-div-main-text-headline">Lockie Ferguson in line for New Zealand Test debut after call-up</a>
+						 
+						 <span class = "headline-div-main-text-byline">22d . ESPNcricinfo staff</span>
+						 
+					</div>
+				
+				</div>
+			
+			</div>
+			
+			<div class = "headline-div">
+		
+				<span class="headline-div-series">NEW ZEALAND IN AUSTRALIA 2019-20</span>
+				
+				<div class="clear-floats"></div>
+				
+				<div class="headline-div-main move-down-a-bit">
+				
+					<img class="headline-image" src="images/ferguson.jpeg">
+					
+					<div class="headline-div-main-text">
+					
+						 <a href="" class = "headline-div-main-text-headline">Lockie Ferguson in line for Test chance amid packed New Zealand schedule</a>
+						 
+						 <span class = "headline-div-main-text-byline">22d . ESPNcricinfo staff</span>
+						 
+					</div>
+				
+				</div>
+			
+			</div>
+			
+			<div class = "headline-div">
+				
+				<img src="images/flag.png" class="headline-flag">
+				
+				<span class="headline-div-series">AUSTRALIA</span>
+				
+				<div class="clear-floats"></div>
+				
+				<div class="headline-div-main">
+				
+					<img class="headline-image" src="images/headline-image-3.jfif">
+					
+					<div class="headline-div-main-text">
+						 <a href="" class = "headline-div-main-text-headline">No day-night Sheffield Shield games scheduled ahead of pink ball Tests</a>
+						 
+						 <span class = "headline-div-main-text-byline">24d . ESPNcricinfo staff</span>
+						 
+						 
+					
+					</div>
+				
+				</div>
+			
+			</div>
+		
+		</div>
+		
+		<div id="rhs-div">
+			<a href="" class="privacy-link">Terms of Use</a>
+			<a href="" class="privacy-link">Privacy policy</a>
+			<a href="" class="privacy-link">Your california privacy rights</a>
+			<a href="" class="privacy-link">Children's online privacy policy</a>
+			<a href="" class="privacy-link">Interest based adds</a>
+			
+			<span id="copyright-text">© 2019 ESPN Sports Media Ltd. All rights reserved</span>
+		
+		</div>
+		
+	</body>
+
+</html>
