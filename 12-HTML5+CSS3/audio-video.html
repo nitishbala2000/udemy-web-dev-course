@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Audio and video</title>
+    </head>
+
+    <body>
+
+       
+        <video width="320" height="240" controls id="video">
+            <source src="something just like this.mp4" type="video/mp4">
+
+
+            Please upgrade your browser!!!
+        </video>
+
+
+        
+        <p><button id="play">Play</button></p>
+        
+        <audio controls>
+            <source src="sample-audio.mp3" type="audio/mpeg">
+        </audio>
+
+        <script type="text/javascript">
+
+            document.getElementById("play").onclick = function() {
+                var video = document.getElementById("video");
+
+                if (video.paused) {
+                    video.play();
+                    this.innerHTML = "Pause";
+                } else {
+                    video.pause();
+                    this.innerHTML = "Play";
+                }
+            }
+        
+        </script>
+     
+
+    </body>
+</html>

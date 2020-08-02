@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>Clock</title>
+
+        <style type="text/css">
+            #myCanvas {
+                border : 1px black solid;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <canvas id="myCanvas" width="500" height="500">
+            
+        </canvas>
+     
+        <script>
+
+           
+
+            var myCanvas = document.getElementById("myCanvas");
+            var context = myCanvas.getContext("2d"); //Set canvas to 2d
+
+           
+            //Clock hands
+            context.beginPath();
+            context.strokeStyle = "white";
+            var secondHandLength = 200;
+            var minuteHandLength = 170;
+            var hourHandLength = 130;
+            setInterval(function() {
+                context.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
+
+                 //Cirle
+                context.beginPath();
+                context.fillStyle = "black";
+                context.arc(250,250, 250, 0, 2 * Math.PI);
+                context.fill();
+
+                //Inner circle
+                context.beginPath();
+                context.fillStyle = "white";
+                context.arc(250,250, 10, 0, 2 * Math.PI);
+                context.fill();
+
+                //Numbers
+                context.beginPath();
+                context.fillStyle = "white";
+                context.font = "20px Arial";
+                var numRadius = 220;
+                for (var i = 1; i <= 12; i++) {
+                    var angle = i * Math.PI / 6;
+                    var x = 250 + numRadius * Math.sin(angle);
+                    var y = 250 - numRadius * Math.cos(angle);
+                    context.fillText(i, x, y);
+
+
+                }
+
+
+
+
+                var today = new Date();
+                var hour = today.getHours() % 12;
+                var minute = today.getMinutes();
+                var second = today.getSeconds();
+            
+                context.beginPath();
+                context.lineWidth = 1;
+                var secondAngle = second / 60 * 2 * Math.PI;
+                var secondX = 250 + secondHandLength * Math.sin(secondAngle);
+                var secondY = 250 - secondHandLength * Math.cos(secondAngle);
+                context.moveTo(250,250);
+                context.lineTo(secondX, secondY);
+                context.stroke();
+    
+
+                context.beginPath();
+                context.lineWidth = 2;
+                var minuteAngle = minute / 60 * 2 * Math.PI + second / 60 * Math.PI / 30;
+                var minuteX = 250 + minuteHandLength * Math.sin(minuteAngle);
+                var minuteY = 250 - minuteHandLength * Math.cos(minuteAngle);
+                context.moveTo(250, 250);
+                context.lineTo(minuteX, minuteY);
+                context.stroke();
+
+
+                context.beginPath();
+                context.lineWidth = 3;
+                var secondsInThisHour = second + minute * 60;
+                var hourAngle = (hour / 12 * 2 * Math.PI) + ((secondsInThisHour / 3600) * (Math.PI / 6));
+                var hourX = 250 + hourHandLength * Math.sin(hourAngle);
+                var hourY = 250 - hourHandLength * Math.cos(hourAngle);
+                context.moveTo(250, 250);
+                context.lineTo(hourX, hourY);
+                context.stroke();
+
+                
+                
+
+            }, 100);
+          
+            
+        
+        
+        </script>
+    </body>
+</html>

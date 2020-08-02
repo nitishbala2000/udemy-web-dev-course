@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Gradients and shadows</title>
+        <style>
+            #gradient {
+                width : 500px;
+                height : 200px;
+                background: linear-gradient(to bottom right, white, red,green,blue);
+            }
+
+            #radialgradient {
+                width: 500px;
+                height: 200px;
+                background : radial-gradient(white,blue);
+            }
+
+            #testgradient {
+                width : 500px;
+                height : 200px;
+                background: linear-gradient(to bottom left, green,yellow);
+            }
+
+            h2 {
+                /*First 2 arguments are shadow x and y offset, last is blur*/
+                text-shadow: 2px 2px 4px;
+            }
+
+            #shadow {
+                width: 200px;
+                height: 200px;
+                box-shadow: 3px 3px 3px;
+                background-color: antiquewhite;
+            }
+        </style>
+
+      
+    </head>
+
+    <body>
+
+        <h2>This text will have a shadow</h2>
+
+        <div id="shadow">
+           
+        </div>
+
+        <div id="gradient">
+
+            <h1>This is a gradient</h1>
+        </div>
+
+        <div id="radialgradient"></div>
+
+        <div id="testgradient"></div>
+        
+     
+
+    </body>
+</html>

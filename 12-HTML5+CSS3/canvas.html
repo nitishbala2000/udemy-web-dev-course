@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Canvas</title>
+
+        <style type="text/css">
+            #myCanvas {
+                border : 1px black solid;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <canvas id="myCanvas" width="500" height="400">
+
+        </canvas>
+     
+        <script>
+
+            var myCanvas = document.getElementById("myCanvas");
+            var context = myCanvas.getContext("2d"); //Set canvas to 2d
+
+            
+            // context.fillStyle = "#49C900";
+            // context.fillRect(10, 10, 100, 100);
+
+            // context.moveTo(0, 400);
+            // context.lineTo(500,0);
+            // context.lineWidth = 20;
+            // context.strokeStyle = "#F42924";
+            // context.stroke();
+
+            context.beginPath();
+            var gradient = context.createLinearGradient(150,100,350,300);
+            gradient.addColorStop(0,"white");
+            gradient.addColorStop(1, "#49C900");
+            context.strokeStyle = "black";
+            context.fillStyle = gradient;
+            context.rect(150,100,200,200);
+            context.fill();
+            context.stroke();
+            
+
+            context.beginPath();
+            context.strokeStyle = "#F42924";
+            context.moveTo(150, 100);
+            context.lineTo(350, 300);
+            
+
+            context.moveTo(150, 300);
+            context.lineTo(350, 100);
+            context.stroke();
+            
+            //Draw a circle
+            context.beginPath()
+            context.arc(100,100,50,0, 2 * Math.PI);
+            context.strokeStyle = "blue";
+            context.stroke();
+
+
+            context.beginPath();
+            context.fillStyle = "black";
+            context.font = "20px Arial";
+            context.fillText("My Canvas", 200, 50);
+            
+        
+        </script>
+    </body>
+</html>
